@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Text-guided High-definition Consistency Texture Model</title>
   <script src="https://threejs.org/build/three.js"></script>
-  <script src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/js/OBJLoader.js"></script>
-  <script src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/js/MTLLoader.js"></script>
+  <script src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/OBJLoader.js"></script>
+  <script src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/MTLLoader.js"></script>
 </head>
 <body>
   <h1>Text-guided High-definition Consistency Texture Model</h1>
-  <h2>Authors: Zhibin Tang, Tiantong He123</h2>
+  <h2>Authors: Zhibin Tang, Tiantong He</h2>
   <h3>Abstract</h3>
   <p>
     With the advent of depth-to-image diffusion models, text-guided generation, editing, and transfer of realistic textures are no longer difficult. However, due to the limitations of pre-trained diffusion models, they can only create low-resolution, inconsistent textures. To address this issue, we present the High-definition Consistency Texture Model (HCTM), a novel method that can generate high-definition and consistent textures for 3D meshes according to the text prompts. We achieve this by leveraging a pre-trained depth-to-image diffusion model to generate single viewpoint results based on the text prompt and a depth map. We fine-tune the diffusion model with Parameter-Efficient Fine-Tuning to quickly learn the style of the generated result, and apply the multi-diffusion strategy to produce high-resolution and consistent results from different viewpoints. Furthermore, we propose a strategy that prevents the appearance of noise on the textures caused by backpropagation. Our proposed approach has demonstrated promising results in generating high-definition and consistent textures for 3D meshes, as demonstrated through a series of experiments.

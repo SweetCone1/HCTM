@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Text-guided High-definition Consistency Texture Model</title>
+  <script src="https://threejs.org/build/three.js"></script>
+  <script src="https://threejs.org/examples/js/loaders/MTLLoader.js"></script>
+  <script src="https://threejs.org/examples/js/loaders/OBJLoader.js"></script>
 </head>
 <body>
   <h1>Text-guided High-definition Consistency Texture Model</h1>
@@ -17,5 +20,35 @@
   <video src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/video1.mp4" controls></video>
   <p>this is video1</p>
   <iframe src="https://arxiv.org/abs/2305.05901" width="100%" height="500" frameborder="0"></iframe>
+  <div id="3d-model" style="width: 800px; height: 600px;"></div>
+
+  <script>
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(75, 800 / 600, 0.1, 1000);
+    var renderer = new THREE.WebGLRenderer();
+
+    renderer.setSize(800, 600);
+    document.getElementById('3d-model').appendChild(renderer.domElement);
+
+    var mtlLoader = new THREE.MTLLoader();
+    mtlLoader.load('https://raw.githubusercontent.com/SweetCone1/HCTM/main/111.mtl', function (materials) {
+      materials.preload();
+
+      var objLoader = new THREE.OBJLoader();
+      objLoader.setMaterials(materials);
+      objLoader.load('https://raw.githubusercontent.com/SweetCone1/HCTM/main/111.obj', function (object) {
+        scene.add(object);
+      });
+    });
+
+    camera.position.z = 5;
+
+    function animate() {
+      requestAnimationFrame(animate);
+      renderer.render(scene, camera);
+    }
+
+    animate();
+  </script>
 </body>
 </html>

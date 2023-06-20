@@ -31,12 +31,12 @@
     document.getElementById('3d-model').appendChild(renderer.domElement);
 
     var mtlLoader = new THREE.MTLLoader();
-    mtlLoader.load('https://raw.githubusercontent.com/SweetCone1/HCTM/main/111.mtl', function (materials) {
+    mtlLoader.load('https://raw.githubusercontent.com/SweetCone1/HCTM/main/mesh.mtl', function (materials) {
       materials.preload();
 
       var objLoader = new THREE.OBJLoader();
       objLoader.setMaterials(materials);
-      objLoader.load('https://raw.githubusercontent.com/SweetCone1/HCTM/main/111.obj', function (object) {
+      objLoader.load('https://raw.githubusercontent.com/SweetCone1/HCTM/main/mesh.obj', function (object) {
         scene.add(object);
       });
     });

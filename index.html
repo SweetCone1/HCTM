@@ -1,28 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Text-guided High-definition Consistency Texture Model</title>
-<!--   <script src="https://threejs.org/build/three.js"></script>
+  <!--   <script src="https://threejs.org/build/three.js"></script>
   <script src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/OBJLoader.js"></script>
   <script src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/MTLLoader.js"></script> -->
-</head>
-<body>
-  <h1>Text-guided High-definition Consistency Texture Model</h1>
-  <h2>Authors: Zhibin Tang, Tiantong He</h2>
-  <h3>Abstract</h3>
-  <p>
-    With the advent of depth-to-image diffusion models, text-guided generation, editing, and transfer of realistic textures are no longer difficult. However, due to the limitations of pre-trained diffusion models, they can only create low-resolution, inconsistent textures. To address this issue, we present the High-definition Consistency Texture Model (HCTM), a novel method that can generate high-definition and consistent textures for 3D meshes according to the text prompts. We achieve this by leveraging a pre-trained depth-to-image diffusion model to generate single viewpoint results based on the text prompt and a depth map. We fine-tune the diffusion model with Parameter-Efficient Fine-Tuning to quickly learn the style of the generated result, and apply the multi-diffusion strategy to produce high-resolution and consistent results from different viewpoints. Furthermore, we propose a strategy that prevents the appearance of noise on the textures caused by backpropagation. Our proposed approach has demonstrated promising results in generating high-definition and consistent textures for 3D meshes, as demonstrated through a series of experiments.
-  </p>
-  <img src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/pic1.png" alt="pic">
-  <p>this is pic1</p>
-  <video src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/video1.mp4" controls></video>
-  <p>this is video1</p>
-  <a href="https://arxiv.org/abs/2305.05901" target="_blank">Link to the arXiv paper</a>
-<!--   <div id="3d-model" style="width: 800px; height: 600px;"></div> -->
+  <!-- Add your CSS references here -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/assets/css/Highlight-Clean.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
 
-<!--   <script>
+  <!-- Add your JavaScript references here -->
+  <script src="assets/js/video_comparison.js"></script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer@2.0.1/dist/model-viewer.min.js"></script>
+</head>
+
+<body>
+  <div class="banner"> </div>
+
+  <div class="highlight-clean" style="padding-bottom: 10px;">
+    <div class="container" style="max-width: 768px;" href="https://arxiv.org/pdf/2305.05901">
+      <h1 class="text-center"><b> HCTM: </b>Text-guided High-definition Consistency Texture Model</h1>
+    </div>
+
+    <div class="container" style="max-width: 768px;">
+      <div class="row authors" style="display: flex; justify-content: center;">
+        <div class="col-sm-3">
+          <h5 class="text-center"><a class="text-center" href="">TianTong He</a></h5>
+          <h6 class="text-center">Your company</h6>
+        </div>
+
+        <div class="col-sm-3">
+          <h5 class="text-center"><a class="text-center" href="">Zhibin Tang</a></h5>
+          <h6 class="text-center">Your company</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="buttons" style="margin-bottom: 8px;">
+      <a class="btn btn-light" role="button" href="https://arxiv.org/pdf/2305.05901">
+        <svg style="width:24px;height:24px;margin-left:-12px;margin-right:12px" viewBox="0 0 24 24">
+          <path fill="currentColor"
+            d="M16 0H8C6.9 0 6 .9 6 2V18C6 19.1 6.9 20 8 20H20C21.1 20 22 19.1 22 18V6L16 0M20 18H8V2H15V7H20V18M4 4V22H20V24H4C2.9 24 2 23.1 2 22V4H4M10 10V12H18V10H10M10 14V16H15V14H10Z">
+          </path>
+        </svg>Paper
+      </a>
+      <a class="btn btn-light disabled border border-dark" aria-disabled="true" role="button"
+        href="https://github.com/SweetCone1/HCTM">
+        <svg style="visibility:hidden;width:0px;height:24px;margin-left:-12px;margin-right:12px" width="0px"
+          height="24px" viewBox="0 0 375 531">
+          <polygon stroke="#000000" points="0.5,0.866 459.5,265.87 0.5,530.874 " />
+        </svg>
+        Project
+      </a>
+      <!-- <a class="btn btn-light" role="button" href="/gallery.html">
+        <svg style="width:24px;height:24px;margin-left:-12px;margin-right:12px" width="24px" height="24px"
+          viewBox="0 0 375 531">
+          <polygon stroke="#000000" points="0.5,0.866 459.5,265.87 0.5,530.874 " />
+        </svg>
+        Gallery
+      </a> -->
+    </div>
+
+    <div class="container" style="max-width: 768px;">
+      <h3>Abstract</h3>
+      <p>
+        With the advent of depth-to-image diffusion models, text-guided generation, editing, and transfer of
+        realistic textures are no longer difficult. However, due to the limitations of pre-trained diffusion
+        models, they can only create low-resolution, inconsistent textures. To address this issue, we present
+        the High-definition Consistency Texture Model (HCTM), a novel method that can generate high-definition
+        and consistent textures for 3D meshes according to the text prompts. We achieve this by leveraging a
+        pre-trained depth-to-image diffusion model to generate single viewpoint results based on the text prompt
+        and a depth map. We fine-tune the diffusion model with Parameter-Efficient Fine-Tuning to quickly learn
+        the style of the generated result, and apply the multi-diffusion strategy to produce high-resolution and
+        consistent results from different viewpoints. Furthermore, we propose a strategy that prevents the
+        appearance of noise on the textures caused by backpropagation. Our proposed approach has demonstrated
+        promising results in generating high-definition and consistent textures for 3D meshes, as demonstrated
+        through a series of experiments.
+      </p>
+    </div>
+
+    <div class="container" style="max-width: 768px;">
+      <!-- Add your images and videos here -->
+      <img src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/pic1.png" alt="pic">
+      <p class="text-center">this is pic1</p>
+
+      <video src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/video1.mp4" controls></video>
+      <p class="text-center">this is video1</p>
+    </div>
+
+    <div class="container" style="max-width: 768px;">
+      <a href="https://arxiv.org/abs/2305.05901" target="_blank">Link to the arXiv paper</a>
+    </div>
+
+  </div>
+
+  <!--   <div id="3d-model" style="width: 800px; height: 600px;"></div> -->
+
+  <!--   <script>
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(75, 800 / 600, 0.1, 1000);
     var renderer = new THREE.WebGLRenderer();
@@ -50,5 +129,7 @@
 
     animate();
   </script> -->
+
 </body>
+
 </html>

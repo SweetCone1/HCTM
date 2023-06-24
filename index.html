@@ -12,9 +12,9 @@
   <link rel="stylesheet" href="/assets/css/styles.css">
 
   <!-- Add your JavaScript references here -->
-  <script src="https://threejs.org/build/three.js"></script>
-  <script src="https://threejs.org/examples/js/loaders/MTLLoader.js"></script>
-  <script src="https://threejs.org/examples/js/loaders/OBJLoader.js"></script>
+  <!-- <script src="https://threejs.org/build/three.js"></script> -->
+  <!-- <script src="https://threejs.org/examples/jsm/loaders/MTLLoader.js"></script>
+  <script src="https://threejs.org/examples/jsm/loaders/OBJLoader.js"></script> -->
   <script type="module" src="https://unpkg.com/@google/model-viewer@2.0.1/dist/model-viewer.min.js"></script>
 </head>
 
@@ -94,36 +94,41 @@
     </div>
   </div>
 
-  <!-- <div id="3d-model" style="width: 800px; height: 600px;"></div>
+  <div id="3d-model" style="width: 800px; height: 600px;"></div>
 
-  <script>
+  <script type="module">
+    import * as THREE from 'https://threejs.org/build/three.module.js';
+    import { MTLLoader } from 'https://threejs.org/examples/jsm/loaders/MTLLoader.js';
+    import { OBJLoader } from 'https://threejs.org/examples/jsm/loaders/OBJLoader.js';
+  
     var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(75, 800 / 600, 0.1, 1000);
+    var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     var renderer = new THREE.WebGLRenderer();
-
-    renderer.setSize(800, 600);
-    document.getElementById('3d-model').appendChild(renderer.domElement);
-
-    var mtlLoader = new THREE.MTLLoader();
+  
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+  
+    var mtlLoader = new MTLLoader();
     mtlLoader.load('https://raw.githubusercontent.com/SweetCone1/HCTM/main/mesh.mtl', function (materials) {
       materials.preload();
-
-      var objLoader = new THREE.OBJLoader();
+  
+      var objLoader = new OBJLoader();
       objLoader.setMaterials(materials);
       objLoader.load('https://raw.githubusercontent.com/SweetCone1/HCTM/main/mesh.obj', function (object) {
         scene.add(object);
       });
     });
-
+  
     camera.position.z = 5;
-
+  
     function animate() {
       requestAnimationFrame(animate);
       renderer.render(scene, camera);
     }
-
+  
     animate();
-  </script> -->
+  </script>
+  
 
 </body>
 

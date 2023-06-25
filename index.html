@@ -66,7 +66,7 @@
       </a>
     </div>
 
-    <div class="container" style="max-width: 768px;">
+    <div class="container text-center" style="max-width: 768px;">
       <h3>Abstract</h3>
       <p>
         With the advent of depth-to-image diffusion models, text-guided generation, editing, and transfer of realistic textures are no longer difficult. However, due to the limitations of pre-trained diffusion models, they can only create low-resolution, inconsistent textures. To address this issue, we present the High-definition Consistency Texture Model (HCTM), a novel method that can generate high-definition and consistent textures for 3D meshes according to the text prompts. We achieve this by leveraging a pre-trained depth-to-image diffusion model to generate single viewpoint results based on the text prompt and a depth map. We fine-tune the diffusion model with Parameter-Efficient Fine-Tuning to quickly learn the style of the generated result, and apply the multi-diffusion strategy to produce high-resolution and consistent results from different viewpoints. Furthermore, we propose a strategy that prevents the appearance of noise on the textures caused by backpropagation. Our proposed approach has demonstrated promising results in generating high-definition and consistent textures for 3D meshes, as demonstrated through a series of experiments.
@@ -85,49 +85,52 @@
     <div class="container" style="max-width: 768px;">
       <h2>Citation</h2>
       <code>
-        @article{tang2023textguided,<br>
-        &nbsp; author = {Tang, Zhibin and He, Tiantong},<br>
-        &nbsp; title  = {Text-guided High-definition Consistency Texture Model},<br>
-        &nbsp; journal = {arXiv},<br>
-        &nbsp; year   = {2023},<br>
+        @misc{tang2023textguided,<br>
+          &nbsp; title={Text-guided High-definition Consistency Texture Model}, <br>
+          &nbsp; author={Zhibin Tang and Tiantong He},<br>
+          &nbsp; year={2023},<br>
+          &nbsp; eprint={2305.05901},<br>
+          &nbsp; archivePrefix={arXiv},<br>
+          &nbsp; primaryClass={cs.CV}<br>
         }</code>
     </div>
   </div>
 
-<!--   <div id="3d-model" style="width: 800px; height: 600px;"></div>
+  <div id="3d-model" style="width: 400px; height: 300px;"></div>
 
   <script type="module">
-    import * as THREE from 'https://threejs.org/build/three.module.js';
-    import { MTLLoader } from 'https://threejs.org/examples/jsm/loaders/MTLLoader.js';
-    import { OBJLoader } from 'https://threejs.org/examples/jsm/loaders/OBJLoader.js';
-  
-    var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    var renderer = new THREE.WebGLRenderer();
-  
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
-  
-    var mtlLoader = new MTLLoader();
-    mtlLoader.load('https://raw.githubusercontent.com/SweetCone1/HCTM/main/mesh.mtl', function (materials) {
-      materials.preload();
-  
-      var objLoader = new OBJLoader();
-      objLoader.setMaterials(materials);
-      objLoader.load('https://raw.githubusercontent.com/SweetCone1/HCTM/main/mesh.obj', function (object) {
-        scene.add(object);
-      });
-    });
-  
-    camera.position.z = 5;
-  
-    function animate() {
-      requestAnimationFrame(animate);
-      renderer.render(scene, camera);
+    import * as THREE from 'https://unpkg.com/three/build/three.module.js';
+
+    // init
+
+    const camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 10 );
+    camera.position.z = 1;
+
+    const scene = new THREE.Scene();
+
+    const geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
+    const material = new THREE.MeshNormalMaterial();
+
+    const mesh = new THREE.Mesh( geometry, material );
+    scene.add( mesh );
+
+    const renderer = new THREE.WebGLRenderer( { antialias: true } );
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setAnimationLoop( animation );
+    document.body.appendChild( renderer.domElement );
+
+    // animation
+
+    function animation( time ) {
+
+        mesh.rotation.x = time / 2000;
+        mesh.rotation.y = time / 1000;
+
+        renderer.render( scene, camera );
+
     }
-  
-    animate();
-  </script> -->
+
+</script>
   
 
 </body>

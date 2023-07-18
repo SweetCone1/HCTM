@@ -49,17 +49,22 @@
     <div class="buttons text-center" style="margin-bottom: 8px;">
       <a class="btn btn-light" role="button" href="https://arxiv.org/pdf/2305.05901">
         <svg style="width:24px;height:24px;margin-left:-12px;margin-right:12px" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M16 0H8C6.9 0 6 .9 6 2V18C6 19.1 6.9 20 8 20H20C21.1 20 22 19.1 22 18V6L16 0M20 18H8V2H15V7H20V18M4 4V22H20V24H4C2.9 24 2 23.1 2 22V4H4M10 10V12H18V10H10M10 14V16H15V14H10Z"></path>
+          <path fill="currentColor"
+            d="M16 0H8C6.9 0 6 .9 6 2V18C6 19.1 6.9 20 8 20H20C21.1 20 22 19.1 22 18V6L16 0M20 18H8V2H15V7H20V18M4 4V22H20V24H4C2.9 24 2 23.1 2 22V4H4M10 10V12H18V10H10M10 14V16H15V14H10Z">
+          </path>
         </svg>Paper
       </a>
-      <a class="btn btn-light disabled border border-dark" aria-disabled="true" role="button" href="https://github.com/SweetCone1/HCTM">
-        <svg style="visibility:hidden;width:0px;height:24px;margin-left:-12px;margin-right:12px" width="0px" height="24px" viewBox="0 0 375 531">
+      <a class="btn btn-light disabled border border-dark" aria-disabled="true" role="button"
+        href="https://github.com/SweetCone1/HCTM">
+        <svg style="visibility:hidden;width:0px;height:24px;margin-left:-12px;margin-right:12px" width="0px"
+          height="24px" viewBox="0 0 375 531">
           <polygon stroke="#000000" points="0.5,0.866 459.5,265.87 0.5,530.874 "></polygon>
         </svg>
         Project
       </a>
       <a class="btn btn-light" role="button" href="/gallery.html">
-        <svg style="width:24px;height:24px;margin-left:-12px;margin-right:12px" width="24px" height="24px" viewBox="0 0 375 531">
+        <svg style="width:24px;height:24px;margin-left:-12px;margin-right:12px" width="24px" height="24px"
+          viewBox="0 0 375 531">
           <polygon stroke="#000000" points="0.5,0.866 459.5,265.87 0.5,530.874 "></polygon>
         </svg>
         Gallery
@@ -69,9 +74,76 @@
     <div class="container text-center" style="max-width: 768px;">
       <h3>Abstract</h3>
       <p>
-        With the advent of depth-to-image diffusion models, text-guided generation, editing, and transfer of realistic textures are no longer difficult. However, due to the limitations of pre-trained diffusion models, they can only create low-resolution, inconsistent textures. To address this issue, we present the High-definition Consistency Texture Model (HCTM), a novel method that can generate high-definition and consistent textures for 3D meshes according to the text prompts. We achieve this by leveraging a pre-trained depth-to-image diffusion model to generate single viewpoint results based on the text prompt and a depth map. We fine-tune the diffusion model with Parameter-Efficient Fine-Tuning to quickly learn the style of the generated result, and apply the multi-diffusion strategy to produce high-resolution and consistent results from different viewpoints. Furthermore, we propose a strategy that prevents the appearance of noise on the textures caused by backpropagation. Our proposed approach has demonstrated promising results in generating high-definition and consistent textures for 3D meshes, as demonstrated through a series of experiments.
+        With the advent of depth-to-image diffusion models, text-guided generation, editing, and transfer of realistic
+        textures are no longer difficult. However, due to the limitations of pre-trained diffusion models, they can only
+        create low-resolution, inconsistent textures. To address this issue, we present the High-definition Consistency
+        Texture Model (HCTM), a novel method that can generate high-definition and consistent textures for 3D meshes
+        according to the text prompts. We achieve this by leveraging a pre-trained depth-to-image diffusion model to
+        generate single viewpoint results based on the text prompt and a depth map. We fine-tune the diffusion model
+        with Parameter-Efficient Fine-Tuning to quickly learn the style of the generated result, and apply the
+        multi-diffusion strategy to produce high-resolution and consistent results from different viewpoints.
+        Furthermore, we propose a strategy that prevents the appearance of noise on the textures caused by
+        backpropagation. Our proposed approach has demonstrated promising results in generating high-definition and
+        consistent textures for 3D meshes, as demonstrated through a series of experiments.
       </p>
     </div>
+
+<style>
+  .pcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust as needed */
+  }
+  
+  .image-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px; /* Adjust as needed */
+  }
+  
+  .image-group .image-container {
+    margin-right: 20px; /* Adjust as needed */
+  }
+  
+  .image-group img {
+    max-width: 40%; /* Adjust as needed */
+    height: auto;
+  }
+  
+  .annotation {
+    text-align: center;
+  }
+</style>
+
+<div class="pcontainer">
+  <div class="image-group">
+    <div class="image-container">
+      <img src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/pic1.png" alt="pic1">
+      <p class="annotation">This is pic1</p>
+    </div>
+  
+    <div class="image-container">
+      <img src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/pic1.png" alt="pic2">
+      <p class="annotation">This is pic2</p>
+    </div>
+  </div>
+  
+  <div class="image-group">
+    <div class="image-container">
+      <img src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/pic1.png" alt="pic3">
+      <p class="annotation">This is pic3</p>
+    </div>
+  
+    <div class="image-container">
+      <img src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/pic1.png" alt="pic4">
+      <p class="annotation">This is pic4</p>
+    </div>
+  </div>
+</div>
+
 
     <div class="container" style="max-width: 768px;">
       <!-- Add your images and videos here -->
@@ -103,35 +175,35 @@
 
     // init
 
-    const camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 10 );
+    const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 10);
     camera.position.z = 1;
 
     const scene = new THREE.Scene();
 
-    const geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
+    const geometry = new THREE.BoxGeometry(0.2, 0.2, 0.2);
     const material = new THREE.MeshNormalMaterial();
 
-    const mesh = new THREE.Mesh( geometry, material );
-    scene.add( mesh );
+    const mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
 
-    const renderer = new THREE.WebGLRenderer( { antialias: true } );
-    renderer.setSize( window.innerWidth, window.innerHeight );
-    renderer.setAnimationLoop( animation );
-    document.body.appendChild( renderer.domElement );
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setAnimationLoop(animation);
+    document.body.appendChild(renderer.domElement);
 
     // animation
 
-    function animation( time ) {
+    function animation(time) {
 
-        mesh.rotation.x = time / 2000;
-        mesh.rotation.y = time / 1000;
+      mesh.rotation.x = time / 2000;
+      mesh.rotation.y = time / 1000;
 
-        renderer.render( scene, camera );
+      renderer.render(scene, camera);
 
     }
 
-</script>
-  
+  </script>
+
 
 </body>
 

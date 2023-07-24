@@ -71,8 +71,66 @@
       </a>
     </div>
 
-    <div class="container text-center" style="max-width: 768px;">
-      <h3>Abstract</h3>
+    <style>
+      /* 样式用于将图片和描述放在同一行 */
+      .container {
+        max-width: 768px;
+        margin: 0 auto;
+        /* 居中显示容器内容 */
+      }
+
+      /* 样式用于图片 */
+      .centered-image {
+        display: block;
+        /* 去除图片下方的空白空间 */
+        margin: 20px auto;
+        /* 图片居中显示，并添加上下间距 */
+        max-width: 100%;
+        /* 限制图片最大宽度为容器的宽度 */
+      }
+
+      /* 样式用于将图片和描述放在同一行 */
+      .image-container {
+        display: flex;
+        flex-wrap: wrap;
+        /* 允许图片换行，每行显示4张图片 */
+        align-items: flex-start;
+        /* 让图片和描述顶部对齐 */
+        justify-content: space-between;
+        max-width: 800px;
+        /* 可根据需要调整容器宽度 */
+        margin: 0 auto;
+        /* 居中显示 */
+      }
+
+      /* 样式用于每个图片和描述的外层容器 */
+      .image-item {
+        flex: 0 0 23%;
+        /* 设置图片容器的宽度为 23%，留有一定间距 */
+        margin-bottom: 20px;
+        /* 图片之间的垂直间距 */
+      }
+
+      /* 样式用于图片 */
+      .image-item img {
+        max-width: 100%;
+        /* 限制图片最大宽度为容器的宽度 */
+        display: block;
+        /* 去除图片下方的空白空间 */
+      }
+
+      /* 样式用于对每张图片的描述 */
+      .image-description {
+        text-align: center;
+        margin-top: 10px;
+        /* 调整描述与图片之间的间距 */
+        color: blue;
+        /* 设置文字描述颜色为蓝色 */
+      }
+    </style>
+
+    <div class="container" style="max-width: 768px;">
+      <h2>Abstract</h2>
       <p>
         With the advent of depth-to-image diffusion models, text-guided generation, editing, and transfer of realistic
         textures are no longer difficult. However, due to the limitations of pre-trained diffusion models, they can only
@@ -86,73 +144,67 @@
         backpropagation. Our proposed approach has demonstrated promising results in generating high-definition and
         consistent textures for 3D meshes, as demonstrated through a series of experiments.
       </p>
+      <!-- 添加图片 -->
+      <div>
+        <img class="centered-image" src="https://raw.githubusercontent.com/SweetCone1/HCTM/gh-pages/pictures/denoise.png" alt="图片描述">
+      </div>
     </div>
-
-<style>
-  .pcontainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Adjust as needed */
-  }
-  
-  .image-group {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px; /* Adjust as needed */
-  }
-  
-  .image-group .image-container {
-    margin-right: 20px; /* Adjust as needed */
-  }
-  
-  .image-group img {
-    max-width: 40%; /* Adjust as needed */
-    height: auto;
-  }
-  
-  .annotation {
-    text-align: center;
-  }
-</style>
-
-<div class="pcontainer">
-  <div class="image-group">
-    <div class="image-container">
-      <img src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/pic1.png" alt="pic1">
-      <p class="annotation">This is pic1</p>
-    </div>
-  
-    <div class="image-container">
-      <img src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/pic1.png" alt="pic2">
-      <p class="annotation">This is pic2</p>
-    </div>
-  </div>
-  
-  <div class="image-group">
-    <div class="image-container">
-      <img src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/pic1.png" alt="pic3">
-      <p class="annotation">This is pic3</p>
-    </div>
-  
-    <div class="image-container">
-      <img src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/pic1.png" alt="pic4">
-      <p class="annotation">This is pic4</p>
-    </div>
-  </div>
-</div>
-
 
     <div class="container" style="max-width: 768px;">
-      <!-- Add your images and videos here -->
-      <img src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/pic1.png" alt="pic">
-      <p class="text-center">this is pic1</p>
+      <h2>Demo</h2>
 
-      <video src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/video1.mp4" controls></video>
-      <p class="text-center">this is video1</p>
+      <div class="image-container">
+        <!-- 图片1 -->
+        <div class="image-item">
+          <img src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/pic1.png" alt="图片1">
+          <div class="image-description">图片1的描述</div>
+        </div>
+
+        <!-- 图片2 -->
+        <div class="image-item">
+          <img src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/pic1.png" alt="图片2">
+          <div class="image-description">图片2的描述</div>
+        </div>
+
+        <!-- 图片3 -->
+        <div class="image-item">
+          <img src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/pic1.png" alt="图片3">
+          <div class="image-description">图片3的描述</div>
+        </div>
+
+        <!-- 图片4 -->
+        <div class="image-item">
+          <img src="https://raw.githubusercontent.com/SweetCone1/HCTM/main/pic1.png" alt="图片4">
+          <div class="image-description">图片4的描述</div>
+        </div>
+
+        <!-- 图片5 -->
+        <div class="image-item">
+          <img src="image5.jpg" alt="图片5">
+          <div class="image-description">图片5的描述</div>
+        </div>
+
+        <!-- 图片6 -->
+        <div class="image-item">
+          <img src="image6.jpg" alt="图片6">
+          <div class="image-description">图片6的描述</div>
+        </div>
+
+        <!-- 图片7 -->
+        <div class="image-item">
+          <img src="image7.jpg" alt="图片7">
+          <div class="image-description">图片7的描述</div>
+        </div>
+
+        <!-- 图片8 -->
+        <div class="image-item">
+          <img src="image8.jpg" alt="图片8">
+          <div class="image-description">图片8的描述</div>
+        </div>
+      </div>
+
     </div>
+
 
     <div class="container" style="max-width: 768px;">
       <h2>Citation</h2>
@@ -170,7 +222,7 @@
 
   <div id="3d-model" style="width: 400px; height: 300px;"></div>
 
-  <script type="module">
+  <!-- <script type="module">
     import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 
     // init
@@ -202,8 +254,7 @@
 
     }
 
-  </script>
-
+  </script> -->
 
 </body>
 
